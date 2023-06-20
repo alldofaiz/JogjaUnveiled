@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="colorlib">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Super Admin</title>
+
+  <script src="static/js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="static/js/vendor/bootstrap.min.js"></script>
+  <script src="static/js/jquery.ajaxchimp.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.sticky.js"></script>
+  <script src="static/js/slick.js"></script>
+  <script src="static/js/jquery.counterup.min.js"></script>
+  <script src="static/js/waypoints.min.js"></script>
+  <script src="static/js/main.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <!--
+       CSS
+       ============================================= -->
+  <link rel="stylesheet" href="static/css/linearicons.css">
+  <link rel="stylesheet" href="static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="static/css/magnific-popup.css">
+  <link rel="stylesheet" href="static/css/animate.min.css">
+  <link rel="stylesheet" href="static/css/owl.carousel.css">
+
+  <!-- Bootstrap Icon  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/css/colorpallet.css">
+  <link rel="stylesheet" href="static/css/about.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+<div class="is-mobile is-dekstop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand pt-2" href="#">Super Admin</a>
+         
+        </div>
+      </nav>
+    
+<section class="">
+  <h1 class="h3 mb-3 p-5"><strong>Analytics</strong> Dashboard</h1>
+
+  <div class="row ">
+    <div class="container" >
+      <div class="p-2 ">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="align-items: center;">
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col mt-0">
+                    <h5 class="card-title"><strong>Jumlah Pesanan</strong></h5>
+                  </div>
+                </div>
+                <h1 class="pt-2 mb-3">{{ order }}</h1>                
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="align-items: center;">
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col mt-0">
+                    <h5 class="card-title"><strong>Jumlah Pendapatan</strong></h5>
+                  </div>
+                </div>
+                <h1 class="pt-2 mb-3">Rp. {{ total_biaya }}</h1>                
+              </div>
+            </div>
+          </div>  
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</section>
+ 
+      
+
+
+<section>
+  <h1 class="h3 mb-3 p-5"><strong>Data</strong> Order</h1>
+      <div class="container ">
+        <table class="table table-striped table-sm">
+          <thead style="background-color: gray;">
+            <tr>
+              <th scope="col" style="color: aliceblue;">No.</th>
+              <th scope="col" style="color: aliceblue;">Nama</th>
+              <th scope="col" style="color: aliceblue;">Jenis Package</th>
+              <th scope="col" style="color: aliceblue;">No. Wa</th>
+              <th scope="col" style="color: aliceblue;">Harga</th>
+              <th scope="col" style="color: aliceblue;">Tanggal Pesan</th>
+              <th scope="col" style="color: aliceblue;">Status</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tbody>
+          {% for pesan in data_pesan %}
+          <tr>
+            <td>{{ pesan.nomor_urut }}</td>
+            <td>{{ pesan.nama }}</td>
+            <td>{{ pesan.package }}</td>
+            <td>{{ pesan.phone }}</td>
+            <td>{{ pesan.harga }}</td>
+            <td>{{ pesan.tanggal_pesan }}</td>
+            <td id="status-{{ pesan.nomor_urut }}">
+              {% if pesan.status == "pesanan diterima" %}
+                Pesanan Diterima
+              {% else %}
+                <span onclick="sendMessage('{{ pesan.nama }}', '{{ pesan.nomor_urut }}')" style="cursor: pointer; color: blue; text-decoration: underline;">Kirim Pesan</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+        </table>
+      </div>
+    </section>
+
+  <!--Package Start-->
+  <section>
+    <div class="page-title-content" style="padding: 1rem;">
+        <div class="">
+          <h1 class="h3 mb-3 p-5"><strong>Package</strong> Edit</h1>
+
+        </div>
+      </div>
+    <div class="paket">
+      <div class="container">
+        <div class="row text-center">
+        </div>
+        <div class="center-flex">
+          <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+            <img class="card-img-top" src="static/img/tugu yogyakarta.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Package 1</h5>
+              <p class="card-text"><input 
+                id="detail"
+                type="text" /></li></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Penginapan : <input 
+                id="penginapan"
+                type="text" /></li>
+              <li class="list-group-item">Akomodasi : <input 
+                id="akomodasi"
+                type="text" /></li></li>
+              <li class="list-group-item">Rute : <input 
+                id="rute"
+                type="text" /></li></li>
+              <li class="list-group-item">Biaya Package : Rp. <input 
+                id="biaya"
+                type="number" /></li> (Include tiket wisata)</li>
+            </ul>
+            <button style="width: auto; border-radius: 0%; background-color: var(--primary-color);" onclick="edit1()">Edit</button>
+            
+          </div>
+
+          <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+            <img class="card-img-top" src="static/img/Kraton Yogyakarta.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Package 2</h5>
+              <p class="card-text"><input 
+                id="detail2"
+                type="text" /></li></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Penginapan : <input 
+                id="penginapan2"
+                type="text" /></li>
+              <li class="list-group-item">Akomodasi : <input 
+                id="akomodasi2"
+                type="text" /></li></li>
+              <li class="list-group-item">Rute : <input 
+                id="rute2"
+                type="text" /></li></li>
+              <li class="list-group-item">Biaya Package : Rp. <input 
+                id="biaya2"
+                type="number" /></li> (Include tiket wisata)</li>
+            </ul>
+            <button style="width: auto; border-radius: 0%; background-color: var(--primary-color);" onclick="edit2()">Edit</button>
+            
+          </div>
+
+          <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+            <img class="card-img-top" src="static/img/candi borobudur.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Package 3</h5>
+              <p class="card-text"><input 
+                id="detail3"
+                type="text" /></li></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Penginapan : <input 
+                id="penginapan3"
+                type="text" /></li>
+              <li class="list-group-item">Akomodasi : <input 
+                id="akomodasi3"
+                type="text" /></li></li>
+              <li class="list-group-item">Rute : <input 
+                id="rute3"
+                type="text" /></li></li>
+              <li class="list-group-item">Biaya Package : Rp. <input 
+                id="biaya3"
+                type="number" /></li> (Include tiket wisata)</li>
+            </ul>
+            <button style="width: auto; border-radius: 0%; background-color: var(--primary-color);" onclick="edit3()">Edit</button>
+            
+          </div>
+          
+
+          <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+            <img class="card-img-top" src="static/img/goa pindul dan sungai oyo.jpeg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Package 4</h5>
+              <p class="card-text"><input 
+                id="detail4"
+                type="text" /></li></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Penginapan : <input 
+                id="penginapan4"
+                type="text" /></li>
+              <li class="list-group-item">Akomodasi : <input 
+                id="akomodasi4"
+                type="text" /></li></li>
+              <li class="list-group-item">Rute : <input 
+                id="rute4"
+                type="text" /></li></li>
+              <li class="list-group-item">Biaya Package : Rp. <input 
+                id="biaya4"
+                type="number"
+              /></li> (Include tiket wisata)</li>
+            </ul>
+            <button style="width: auto; border-radius: 0%; background-color: var(--primary-color);" onclick="edit4()">Edit</button>
+            
+          </div>
+        </div>
+        <div class="container center has-text-centered">
+        <button id="deleteButton" style="background-color: red; border-radius: 0%;">Reset Data Package</button>
+      </div>
+  </section>
+  <!--Package End-->
+</div>
+</body>
+
+<script>
+
+function sendMessage(nama, nomorUrut) {
+  // Logika untuk mengirim pesan
+  var pesan = "Pesanan diterima untuk " + nama;
+  alert(pesan);
+
+  // Mengirim permintaan ke server untuk memperbarui status pesanan
+  var data = {
+    nama: nama,
+    status: "pesanan diterima"
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "/update-status",
+    data: JSON.stringify(data),
+    contentType: "application/json",
+    success: function(response) {
+      console.log("Status pesanan diperbarui.");
+      var statusCell = document.getElementById("status-" + nomorUrut);
+      statusCell.innerText = "Pesanan Diterima";
+      statusCell.style.cursor = "default";
+      statusCell.style.color = "black";
+      statusCell.style.textDecoration = "none";
+    },
+    error: function(error) {
+      console.error("Gagal memperbarui status pesanan.");
+    }
+  });
+}
+
+
+
+function edit1(){
+            let detail = $('#detail').val();
+            let penginapan = $('#penginapan').val();
+            let akomodasi = $('#akomodasi').val();
+            let rute = $('#rute').val();
+            let biaya = $('#biaya').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/superadmin/package1",
+            data: {
+                detail_give: detail,
+                penginapan_give: penginapan,
+                akomodasi_give: akomodasi,
+                rute_give: rute,
+                biaya_give: biaya,
+            },
+            success: function(response){
+              alert("Edit Package 1 Success");
+      // Menghapus nilai input setelah sukses
+      $('#detail').val('');
+      $('#penginapan').val('');
+      $('#akomodasi').val('');
+      $('#rute').val('');
+      $('#biaya').val('');
+    },
+  });
+}
+
+function edit2(){
+            let detail2 = $('#detail2').val();
+            let penginapan2 = $('#penginapan2').val();
+            let akomodasi2 = $('#akomodasi2').val();
+            let rute2 = $('#rute2').val();
+            let biaya2 = $('#biaya2').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/superadmin/package2",
+            data: {
+                detail_give2: detail2,
+                penginapan_give2: penginapan2,
+                akomodasi_give2: akomodasi2,
+                rute_give2: rute2,
+                biaya_give2: biaya2,
+            },
+            success: function(response){
+              alert("Edit Package 2 Success");
+      // Menghapus nilai input setelah sukses
+      $('#detail2').val('');
+      $('#penginapan2').val('');
+      $('#akomodasi2').val('');
+      $('#rute2').val('');
+      $('#biaya2').val('');
+    },
+  });
+}
+
+function edit3(){
+            let detail3 = $('#detail3').val();
+            let penginapan3 = $('#penginapan3').val();
+            let akomodasi3 = $('#akomodasi3').val();
+            let rute3 = $('#rute3').val();
+            let biaya3 = $('#biaya3').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/superadmin/package3",
+            data: {
+                detail_give3: detail3,
+                penginapan_give3: penginapan3,
+                akomodasi_give3: akomodasi3,
+                rute_give3: rute3,
+                biaya_give3: biaya3,
+            },
+            success: function(response){
+              alert("Edit Package 3 Success");
+      // Menghapus nilai input setelah sukses
+      $('#detail3').val('');
+      $('#penginapan3').val('');
+      $('#akomodasi3').val('');
+      $('#rute3').val('');
+      $('#biaya3').val('');
+    },
+  });
+}
+
+function edit4(){
+            let detail4 = $('#detail4').val();
+            let penginapan4 = $('#penginapan4').val();
+            let akomodasi4 = $('#akomodasi4').val();
+            let rute4 = $('#rute4').val();
+            let biaya4 = $('#biaya4').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/superadmin/package4",
+            data: {
+                detail_give4: detail4,
+                penginapan_give4: penginapan4,
+                akomodasi_give4: akomodasi4,
+                rute_give4: rute4,
+                biaya_give4: biaya4,
+            },
+            success: function(response){
+              alert("Edit Package 4 Success");
+      // Menghapus nilai input setelah sukses
+      $('#detail4').val('');
+      $('#penginapan4').val('');
+      $('#akomodasi4').val('');
+      $('#rute4').val('');
+      $('#biaya4').val('');
+    },
+  });
+}
+
+$(document).ready(function() {
+            $("#deleteButton").click(function() {
+                $.ajax({
+                    url: "/delete_data",
+                    type: "POST",
+                    success: function(response) {
+                        // Tambahkan kode di sini untuk menangani respons setelah penghapusan berhasil
+                        console.log("Data berhasil dihapus");
+                    },
+                    error: function(xhr, status, error) {
+                        // Tambahkan kode di sini untuk menangani respons jika terjadi kesalahan
+                        console.log("Terjadi kesalahan saat menghapus data");
+                    }
+                });
+            });
+        });
+
+</script>
+
+</html>

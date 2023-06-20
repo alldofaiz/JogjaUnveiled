@@ -1,0 +1,386 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Navbar Start */
+#navbar{
+    align-items: center;
+    background: white;
+}
+#logo{
+    font-size: 40px;
+    font-weight: 550;
+    color: black;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 5px;
+}
+#logo span{
+    color: orange;
+}
+.navbar-toggler span{
+    color: orange;
+}
+.navbar-nav{
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-item .nav-link{
+    margin-right: 1rem;
+    font-size: 16px;
+    font-weight: 550;
+    color: black;
+    letter-spacing: 3px;
+    border-radius: 15px;
+    transition: 0 5s ease;
+}
+.nav-item .nav-link:hover{
+    border-radius: 15px;
+    background: orange;
+    color: white;
+}
+#navbar form button{
+    background: orange;
+    color: white;
+    border: none;
+}
+/* Navbar End */
+
+/* Home Section Star */
+.home{
+    width: 100%;
+    height: 90vh;
+    background-image: url('/static/img/home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.home .img{
+
+}
+.home .content{
+    text-align: center;
+    padding: 100px;
+}
+.home .content h5{
+    color: white;
+    font-size: 38px;
+    font-weight: 550;
+    text-shadow: 0px 1px 1px black;
+}
+.home .content h1{
+    color: white;
+    font-size: 70px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+    margin-top: 5px;
+}
+.changecontent::after{
+    content: '';
+    color: orange;
+    text-shadow: 0px 1px 1px black;
+    animation: changetxt 10s infinite linear;
+}
+@keyframes changetxt{
+    0%{content: "Candi Borobudur";}
+    10%{content: "Lereng Gunung Merapi";}
+    20%{content: "Hutan Pinus Pengger";}
+    30%{content: "Kraton Yogyakarta";}
+    40%{content: "Candi Prambanan";}
+    50%{content: "Waduk Sermo";}
+    60%{content: "Pantai Nglambor";}
+    70%{content: "Goa Jomblang";}
+    80%{content: "Tugu Yogyakarta";}
+    90%{content: "Alun-Alun Kidul";}
+    100%{content: "Jalan Malioboro";}
+}
+.home .content p{
+    color: white;
+    font-size: 15px;
+    font-weight: 550;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.home .content a{
+    padding: 10px;
+    background: white;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 550;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.home .content a:hover{
+    background: orange;
+    color: white;
+}
+@media (max-width:850px){
+    .home{
+    background-position: 50%;
+    }
+}
+@media (max-width:450px){
+    .home .content h5{
+        font-size: 25px;
+    }
+    .home .content h1{
+        font-size: 33px;
+    }
+    .home .content p{
+        font-size: 13px;
+    }
+}
+/* Home Section End */
+
+/* Section Book Start */
+.book{
+    background: white;
+    padding: 50px;
+}
+.main-text h1{
+    text-align: center;
+    text-shadow: 0px 1px 1px black;
+    font-weight: 600;
+}
+.main-text h1 span{
+    color: orange;
+}
+.book .card{
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px -6px black;
+}
+.book .row{
+    margin-top: 30px;
+}
+.book form input{
+    padding: 10px;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px -6px black;
+}
+.book form textarea{
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    box-shadow: 0px 5px 5px -6px black;
+    height: 200px;
+}
+.book .submit{
+    width: 160px;
+    font-size: 16px;
+    font-weight: 550;
+    background: orange;
+    color: white;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+.book .submit:hover{
+    width: 170px;
+}
+@media (max-width:765px){
+    .book{
+        padding: 0px;
+    }
+    .main-text h1{
+        padding: 20px;
+    }
+}
+/* Section Book End */
+
+
+
+
+
+/* Section Packages Start */
+.main-txt h1{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span{
+    color:orange;
+}
+.packages .card{
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+}
+.packages .card img{
+    border-radius: 5px;
+}
+.packages .card .card-body{
+    background: transparent;
+}
+.packages .card .card-body h3{
+    font-size: 25px;
+    font-weight: 600;
+}
+.packages .card .card-body p{
+    font-size: 15px;
+}
+.checked{
+    color: orange;
+}
+.star i{
+    font-size: 15px;
+}
+.packages .card .card-body h6{
+    font-size: 20px;
+}
+.packages .card .card-body a{
+    padding: 10px;
+    text-decoration: none;
+    background: orange;
+    color: white;
+    border-radius: 5px;
+}
+/* Section Packages End */
+
+
+
+
+/* Section Services Start */
+.services{
+    background: white;
+    margin-top: 50px;
+}
+.services .card{
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 17px;
+    border: none;
+    cursor: pointer;
+}
+.services .card i{
+    font-size: 50px;
+    text-align: center;
+    color: orange;
+    margin-top: 20px;
+}
+.services .card .card-body h3{
+    font-weight: 500;
+}
+.services .card .card-body{
+    text-align: center;
+}
+/* Section Services End */
+
+
+
+
+
+/* Section Gallary Start */
+.gallary{
+    margin-top: 50px;
+}
+.gallary .card{
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    cursor: pointer;
+}
+.gallary .card img{
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.gallary .card img:hover{
+    transform: scale(1.1);
+} 
+/* Section Gallary End */
+
+
+
+
+
+/* About Start */
+.about{
+    padding: 50px;
+    margin-top: 50px;
+    background: white;
+}
+.about .card{
+    border-radius: 10px;
+}
+.about .card img{
+    border-radius: 10px;
+}
+.about h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.about p{
+    font-weight: 500;
+}
+#about-btn{
+    width: 150px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background: orange;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 550;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#about-btn:hover{
+width: 170px;
+}
+@media (max-width:700px){
+    .about{
+        padding: 0;
+    }
+}
+/* About End */
+
+
+
+
+
+/* Footer Start */
+#footer{
+    margin-top: 150px;
+    text-align: center;
+    background: white;
+}
+#footer h1{
+    font-weight: 550;
+    padding-top: 30px;
+    text-shadow: 0px 0px 1px black;
+}
+#footer h1 span{
+    color: orange;
+}
+.social-links i{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.social-links i:hover{
+    background: orange;
+}
+/* Footer End */
+.center-flex {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+  }
