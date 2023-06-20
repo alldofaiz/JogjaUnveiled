@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+
+    <link rel=" stylesheet" href="static/css/index.css">
+	<link rel=" stylesheet" href="static/css/colorpallet.css">
+
+    <!-- Bootsrap Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootsrap Link-->
+
+    <!--Font Awesome Cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--Font Awesome Cdn-->
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+    <!-- Google Fonts-->
+    <script>
+        function about() {
+          window.location.href = "/about";
+        }
+      </script>
+</head>
+
+<body style="background-color: var(--thirthy-color);">
+
+
+
+
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" id="logo"><span>Jogja</span>Unveiled</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span><i class="fa-solid fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link active" href=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#packages">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallary">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login" onclick="login()" style="background-color:var(--primary-color); border-radius: 15px;">Pesan Sekarang</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Navbar End-->
+
+
+
+
+
+    <!-- Home Section Start-->
+    <div class="home" id="home">
+        <div class="content">
+            <h5>Selamat datang di Jogja Unveiled</h5>
+            <h1>Kunjungi <span class="changecontent"></span></h1>
+            <p>Menyusuri Kota Yogyakarta dengan Tur Profesional, Harga Terjangkau, Kenangan Abadi!</p>
+        </div>
+    </div>
+    <!-- Home Section End-->
+
+
+    <!-- Section Packages Start -->
+    <section class="packages" id="packages" style="padding: 1rem;">
+        <div class="container">
+
+            <div class="main-txt">
+                <h1><span>P</span>ackages</h1>
+            </div>
+
+            <div class="center-flex" style="margin-top: 30px;">
+                <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+                  <img class="card-img-top" src="static/img/tugu yogyakarta.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Package 1</h5>
+                    <p class="card-text">{{ data1.detail }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Penginapan : {{ data1.penginapan }}</li>
+                    <li class="list-group-item">Akomodasi : {{ data1.akomodasi }}</li>
+                    <li class="list-group-item">Rute : {{ data1.rute }}</li>
+                    <li class="list-group-item">Biaya Package : Rp. {{ data1.biaya }} (Include tiket wisata)</li>
+                  </ul>
+                </div>
+      
+                <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+                  <img class="card-img-top" src="static/img/Kraton Yogyakarta.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Package 2</h5>
+                    <p class="card-text">{{ data2.detail }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Penginapan : {{ data2.penginapan }}</li>
+                    <li class="list-group-item">Akomodasi : {{ data2.akomodasi }}</li>
+                    <li class="list-group-item">Rute : {{ data2.rute }}</li>
+                    <li class="list-group-item">Biaya Package : Rp. {{ data2.biaya }} (Include tiket wisata)</li>
+                  </ul>
+                </div>
+      
+                <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+                  <img class="card-img-top" src="static/img/candi borobudur.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Package 3</h5>
+                    <p class="card-text">{{ data3.detail }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Penginapan : {{ data3.penginapan }}</li>
+                    <li class="list-group-item">Akomodasi : {{ data3.akomodasi }}</li>
+                    <li class="list-group-item">Rute : {{ data3.rute }}</li>
+                    <li class="list-group-item">Biaya Package : Rp. {{ data3.biaya }} (Include tiket wisata)</li>
+                  </ul>
+                </div>
+      
+                <div class="card text-center mb-1 mx-2" style="width: 18rem;">
+                  <img class="card-img-top" src="static/img/goa pindul dan sungai oyo.jpeg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Package 4</h5>
+                    <p class="card-text">{{ data4.detail }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Penginapan : {{ data4.penginapan }}</li>
+                    <li class="list-group-item">Akomodasi : {{ data4.akomodasi }}</li>
+                    <li class="list-group-item">Rute : {{ data4.rute }}</li>
+                    <li class="list-group-item">Biaya Package : Rp. {{ data4.biaya }} (Include tiket wisata)</li>
+                  </ul>
+                </div>
+              </div>
+    </section>
+    <!-- Section Packages End -->
+
+
+
+
+
+
+
+    <!-- Section Services Start -->
+    <section class="services" id="services" style="padding: 1rem;">
+        <div class="container">
+
+            <div class="main-txt">
+                <h1><span>L</span>ayanan</h1>
+            </div>
+
+            <div class="row" style="margin-top: 30px; margin-bottom: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+
+                    <div class="card">
+                        <i class="fas fa-hotel"></i>
+                        <div class="card-body">
+                            <h3>Hotel Terjangkau</h3>
+                            <p>Hotel terjangkau ini menyediakan kenyamanan dan pelayanan yang baik bagi para tamu.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+
+                    <div class="card">
+                        <i class="fas fa-utensils"></i>
+                        <div class="card-body">
+                            <h3>Makan & Minum</h3>
+                            <p>Pilihan makanan dan minuman yang lezat untuk memanjakan selera Anda.</p>
+                        </div>
+                    </div>
+
+                </div>
+            
+                    <div class="col-md-4 py-3 py-md-0">
+
+                        <div class="card">
+                            <i class="fas fa-hiking"></i>
+                            <div class="card-body">
+                                <h3>Petualangan</h3>
+                                <p>Petualangan seru dan tak terlupakan dapat Anda nikmati selama menggunakan jasa kita.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- Section Services End -->
+
+
+
+
+
+
+
+
+    <!-- Section Gallary Start -->
+    <section class="gallary" id="gallary">
+        <div class="container">
+
+            <div class="main-txt">
+                <h1><span>G</span>aleri</h1>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="static/img/Taman_Sari.jpg" alt="" height="230px;">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="static/img/Klook_Noelle_-_Malioboro_Street_Jogja_godrhb (1).webp" alt=""
+                            height="230px;">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="static/img/Alun-Alun Kidul.png" alt="" height="230px;">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card">
+                            <img src="static/img/Sunset-pantai-nglambor-gunung-kidul.jpg" alt="" height="230px;">
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card">
+                            <img src="static/img/Tugu_Yogyakarta_-_carolus-abi-5OEAc-z1VkM-unsplash_ypfbve.webp" alt=""
+                                height="230px;">
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card">
+                            <img src="static/img/pusaka-keraton-jogja.jpg" alt="" height="230px;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- Section Gallary End -->
+
+
+
+
+
+
+
+
+
+    <!-- About Start -->
+    <section class="about" id="about" style="padding: 1rem;">
+        <div class="container" >
+
+            <div class="main-txt">
+                <h1>Tentang<span> Kita</span></h1>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+
+                <div class="col-md-6 py-3 py-md-0">
+                    <div class="card">
+                        <img src="static/img/Goa Jomblang.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 py-3 py-md-0">
+                    <h2>Bagaimana Jogja Unveiled Bekerja?</h2>
+                    <p>Kami di Jogja Unveiled menyediakan platform yang mudah digunakan untuk memilih dan memesan paket tur murah ke kota Jogja. Dengan mengunjungi situs web kami, Anda akan menemukan beragam pilihan paket tur yang telah dirancang secara khusus untuk memenuhi kebutuhan dan minat Anda. Setelah Anda memilih paket yang sesuai, Anda dapat melakukan reservasi dengan mudah melalui platform kami. Tim kami yang berpengalaman akan membantu mengatur detail perjalanan Anda, termasuk transportasi, akomodasi, dan kegiatan di Jogja. Kami berkomitmen untuk memberikan pengalaman wisata yang tak terlupakan dengan harga yang terjangkau. Jadikan Jogja Unveiled sebagai pintu gerbang Anda menuju petualangan yang luar biasa di kota Jogja.</p>
+                    <button id="about-btn" onclick="about()">Baca Lebih ...</button>
+                </div>
+
+            </div>
+
+        </div>
+    <!-- Footer Start -->
+    <footer id="footer">
+        <h1><span>Jogja</span>Unveiled</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. ipsa quos nulla qui alias.</p>
+        <div class="copyright">
+            <p>&copy;Copyright Jogja Unveiled. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    </section>
+    <!-- About End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+    function login() {
+      window.location.href = "/login";
+    }
+    </script>
+
+</body>
+
+</html>
